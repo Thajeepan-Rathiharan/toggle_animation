@@ -1,0 +1,153 @@
+:root {
+/*Width and height*/
+--animation-duration: 0.35s;
+--animation-steps: 6;
+--sharingan-container-width: calc(var(--sharingan-size) * 2.2);
+--sharingan-container-padding: 0.2rem;
+--translate-x: calc(
+var(--sharingan-container-width) - var(--sharingan-size) -
+var(--sharingan-container-padding) - 0.2rem
+);
+}
+
+/* Settings for everything (*=everything) on the page */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* CSS settings for html and body tag */
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+/* CSS settings for the body HTML tag */
+body {
+	overflow-x: hidden;
+}
+
+/* CSS settings for the background of the button */
+.sharingan-background {
+	width: 100vw;
+	height: 100vh;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: grid;
+	place-items: center;
+}
+
+/* Toggle button image change for the background */
+.sound-toggle {
+	background-image: url("https://res.cloudinary.com/dcqggnzbv/image/upload/v1686299129/sharingan%20codepen/sound-toggle_reijoc.svg");
+	background-size: cover;
+	position: absolute;
+	width: 2.5rem;
+	height: 2.5rem;
+	right: 2rem;
+	bottom: 2rem;
+	cursor: pointer;
+	transition: transform 0.3s;
+}
+
+/* Toggle sound button CSS animation */
+.sound-toggle:hover {
+	transform: scale(1.1);
+	transition: transform 0.3s;
+}
+
+/* CSS animation effect to occur once the sound button is turned to mute */
+.sound-toggle.disabled::after {
+	content: "";
+	background-color: #383f45;
+	height: 100%;
+	width: 0.2rem;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotate(-45deg);
+	position: absolute;
+}
+
+/* Background image for screen */
+.sharingan-background.sharingan-regular {
+	background-image: url("https://res.cloudinary.com/dcqggnzbv/image/upload/v1685820489/sharingan%20codepen/sharinganBg_r7bjq9.png");
+	transition: 0.5s;
+}
+
+/* Background image once the button has been clicked on */
+.sharingan-background.sharingan-mangekyou {
+	background-image: url("https://res.cloudinary.com/dcqggnzbv/image/upload/v1686297449/sharingan%20codepen/sample-min_wcvazl.png");
+	transition: 0.5s;
+}
+
+/* Colour change on the button */
+.sharingan-mangekyou > .sharingan-container {
+	box-shadow: 0 0 20px 0 red;
+}
+
+/* Container to the toggle bar */ 
+.sharingan-container {
+	transition: 0.5s;
+	width: var(--sharingan-container-width);
+	height: var(--sharingan-size);
+	background-color: black;
+	display: flex;
+	align-items: center;
+	border-radius: calc(var(--sharingan-size) * 2.5);
+	padding: var(--sharingan-container-padding);
+	cursor: pointer;
+}
+
+/* Button */
+#sharingan {
+	cursor: pointer;
+	width: var(--sharingan-size); /* Width of one sprite */
+	height: var(--sharingan-size); /* Height of one sprite */
+	background: url("https://res.cloudinary.com/dcqggnzbv/image/upload/v1685866255/sharingan%20codepen/one_more_h3oc1v.svg");
+	background-repeat: no-repeat;
+	background-size: var(--background-length) var(--sharingan-size); /* Total width and height of sprite sheet */
+}
+
+/* Button CSS settings for moving forward when toggled/ clicked on */
+.sharingan-forwards {
+	background-position: 0;
+	animation: sharinganAnimationForwards var(--animation-duration)
+		steps(var(--animation-steps));
+	animation-fill-mode: forwards;
+}
+
+/* Button CSS settings for moving backwards when getting toggled/ clicked */
+.sharingan-backwards {
+	background-position: var(--final-position);
+	animation: sharinganAnimationBackwards var(--animation-duration)
+		steps(var(--animation-steps));
+	animation-fill-mode: backwards;
+}
+
+/* Keyframes */
+@keyframes sharinganAnimationForwards {
+	from {
+		background-position: 0;
+		transform: translateX(0);
+	}
+	to {
+		background-position: var(--final-position);
+		transform: translateX(var(--translate-x));
+	}
+}
+
+@keyframes sharinganAnimationBackwards {
+	from {
+		background-position: var(--final-position);
+		transform: translateX(var(--translate-x));
+	}
+	to {
+		background-position: 0;
+		transform: translateX(0);
+	}
+}

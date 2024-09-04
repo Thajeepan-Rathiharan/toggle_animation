@@ -1,0 +1,36 @@
+<!-- The DOCTYPE element at the start of the HTML tells the browser that the document that it loads up is a HTML. -->
+<!DOCTYPE html>
+<!-- <html> </html> Tells the browser what is inside the html such as the element below that tells it the language the text on the page(s) needs to be is in English and is written 'en'. -->
+<html lang="en" >
+<!-- The <head> element is where additional information about the page is put in such as the adding external css scripts, external fonts from sites such as Google fonts and the title of the page that will appear on the tab, alongside properties of the size the content can be viewed. -->
+<head>
+<!-- The <title> tag shows the title of the HTML document on the broswer tab. -->  
+<title>Animated Sharingan Toggle Button</title>
+<!-- The charset <meta> tag tells the browser to reword the code into text that users can read. -->
+<meta charset="UTF-8">
+<!-- The name <meta> tag tells the broswer the measurements of the page so that it doesn't have a bad structure with everything all over the place. -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Script for CSS linked to HTML -->
+<link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+<!-- Main content -->
+<!-- audio link file -->
+<audio src="https://res.cloudinary.com/dcqggnzbv/video/upload/v1685970635/sharingan%20codepen/sharingan-sfx_iusmep.mp3" preload="auto"></audio>
+<!-- Images externally linked to my HTML code from websites on the internet -->
+<link rel="preload" href="https://res.cloudinary.com/dcqggnzbv/image/upload/v1686299129/sharingan%20codepen/sound-toggle_reijoc.svg">
+<link rel="preload" href="https://res.cloudinary.com/dcqggnzbv/image/upload/v1686297449/sharingan%20codepen/sample-min_wcvazl.png" as="image">
+<link rel="preload" href="https://res.cloudinary.com/dcqggnzbv/image/upload/v1685820489/sharingan%20codepen/sharinganBg_r7bjq9.png" as="image">
+<!-- Toggle bar -->
+<div class="sharingan-background sharingan-regular">
+	<div class="sound-toggle disabled"></div>
+	<div class="sharingan-container">
+	<div id="sharingan"></div>
+	</div>
+</div>
+<!-- Script for JavaScript linked to HTML -->
+<script  src="JS/script.js"></script>
+<!-- The </body> ends <body> element telling the broswer that's it for the content on the page. -->
+</body>
+<!-- The </html> tag ends what the <html> tag started, and in this case tells the browser that's the end of what it needs to load on the page. --> 
+</html>
